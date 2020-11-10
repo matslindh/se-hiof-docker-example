@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: se2020-node
+  namespace: default
+  labels:
+    app: se2020-node
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: http
+      name: http
+  selector:
+    app: se2020-node

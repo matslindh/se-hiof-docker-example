@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: se2020-node
+  namespace: default
+  labels:
+    app: se2020-node
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: se2020-node
+  template:
+    metadata:
+      labels:
+        app: se2020-node
+    spec:
+      containers:
+        - name: se2020-node
+          image: registry.digitalocean.com/matslindh-se2020/se2020-node:latest
+          imagePullPolicy: "Always"
+          ports:
+            - containerPort: 3000
+              name: http

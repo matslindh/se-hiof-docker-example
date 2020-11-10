@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: se2020-node-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: se2020.devnull.no
+    http:
+      paths:
+      - backend:
+          serviceName: se2020-node
+          servicePort: 80
+
